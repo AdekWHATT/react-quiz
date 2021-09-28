@@ -9,7 +9,7 @@
         background: rgba(255, 255, 255, .4);
         transition: background .3s ease-in-out;
     }
-    .AnswerItem.succes {
+    .AnswerItem.success {
         background: rgba(161, 240, 69, .7);
     }
     .AnswerItem.error {
