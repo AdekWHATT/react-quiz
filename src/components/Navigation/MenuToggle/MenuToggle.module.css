@@ -1,5 +1,5 @@
 .MenuToggle {
-    position: relative;
+    position: absolute;
     top: 40px;
     left: 40px;
     font-size: 20px;
@@ -15,4 +15,6 @@
 
 .MenuToggle.open {
     left: 320px;
+}
+::before {
 }
