@@ -11,14 +11,27 @@ class Quiz extends Component {
         answerState: null, // { [id]: 'success' 'error'}
         quiz: [
             {
-                question: 'Какого цвета небо?',
+                question: 'Кто был первым президентом России?',
                 rightAnswerId: 2,
                 id: 1,
                 answers: [
-                    { text: 'Черный', id: 1 },
-                    { text: 'Синий', id: 2 },
-                    { text: 'Красный', id: 3 },
-                    { text: 'Зеленый', id: 4 }
+                    { text: 'В.В. Путин', id: 1 },
+                    { text: 'Б.Н. Ельцин', id: 2 },
+                    { text: 'В.В. Путин', id: 3 },
+                    { text: 'В.В. Путин', id: 4 }
+
+                ]
+
+
+            },{
+                question: 'Сколько будет 2*5?',
+                rightAnswerId: 2,
+                id: 1,
+                answers: [
+                    { text: '14', id: 1 },
+                    { text: '10', id: 2 },
+                    { text: '16', id: 3 },
+                    { text: '20', id: 4 }
 
                 ]
 
