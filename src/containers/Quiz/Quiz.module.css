@@ -4,7 +4,7 @@
     padding-top: 100px;
     flex-grow: 1;
     width: 100%;
-    background: linear-gradient(90deg, #1607db, #806aff 100%);
+    background: -webkit-linear-gradient(90deg, #567599,#1f2e4b);background: linear-gradient(90deg, #567599,#1f2e4b);
     }
     .Quiz h1 {
         color: white;

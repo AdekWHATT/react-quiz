@@ -116,6 +116,10 @@ class Quiz extends Component {
             results: {}
         })
     }
+    // проверка правильности определения  ID теста
+    componentDidMount() {
+        console.log('Quiz ID = ' , this.props.match.params.id )
+    }
 
     render() {
         return (

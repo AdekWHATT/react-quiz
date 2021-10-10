@@ -1,0 +1,26 @@
+.QuizList {
+display: flex;
+justify-content: center;
+padding-top: 100px;
+flex-grow: 1;
+width: 100%;
+background: linear-gradient(90deg, #00a49b,#026773,#092c4e);
+}
+.QuizList h1 {
+    color: white;
+}
+.QuizList ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.QuizList li {
+    margin-bottom: 10px;
+}
+.QuizList li a {
+   text-decoration: none;
+   color: white;
+}
+.QuizList li a:hover {
+    color: red;
+ }

@@ -29,7 +29,7 @@ class Drawer extends Component {
             return (
                 <li key={index}>
                 <NavLink
-                to={link.to}
+                to={link.to} 
                 exact={link.exact}
                 activeClassName={classes.active}
                 onClick={this.clickHandler} // закрывает выпадающий список после выбора
