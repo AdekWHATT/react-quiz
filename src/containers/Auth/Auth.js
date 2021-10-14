@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import classes from './Auth.module.css'
 import Button from '../../components/UI/Button/Button'
 import Input from "../../components/UI/Input/Input";
@@ -22,7 +22,7 @@ export default class Auth extends Component {
                 touched: false, // отвечает за состояние, был ли затронут данный инпут или нет
                 validation: { // здесь укажем правило по которому нужно валидировать данный контрол
                     required: true, // требование контрола, без него сабмит не произойдет
-                    email: true   
+                    email: true
                 }
             },
             password: {
@@ -35,8 +35,8 @@ export default class Auth extends Component {
                 validation: {
                     required: true,
                     minLength: 6 // минимальная длина пароля
+                }
             }
-        }
         }
     }
 
@@ -48,62 +48,62 @@ export default class Auth extends Component {
     registerHandler = () => {
 
     }
-// отменяет стандартное поведение формы
+    // отменяет стандартное поведение формы
     submitHandler = event => {
         event.preventDefault()
 
     }
 
-    validateControl (value, validation) {
+    validateControl(value, validation) {
         if (!validation) {
             return true
         }
         let isValid = true
 
         if (validation.required) {
-                isValid = value.trim() !== '' && isValid 
+            isValid = value.trim() !== '' && isValid
         }
-        
+
         if (validation.email) {
             isValid = validateEmail(value) && isValid
         }
-        
+
         if (validation.minLength) {
-                isValid = value.length >= validation.minLength && isValid
+            isValid = value.length >= validation.minLength && isValid
         }
         return isValid
     }
 
     onChangeHandler = (event, controlName) => {
-            // копия стейта во избежание мутации 
-            const formControls = {...this.state.formControls}
-            //копия нужного контрола 
-            const control = { ...formControls[controlName]}
+        // копия стейта во избежание мутации 
+        const formControls = { ...this.state.formControls }
+        //копия нужного контрола 
+        const control = { ...formControls[controlName] }
 
-            // переопределяем все значения в переменную контрол, зна что в самом стейте уже ничего не изменим
-            control.value = event.target.value
-            control.touched = true
-            control.valid = this.validateControl(control.value, control.validation)
-                
-            formControls[controlName] = control
-            
-            let isFormValid = true
+        // переопределяем все значения в переменную контрол, зна что в самом стейте уже ничего не изменим
+        control.value = event.target.value
+        control.touched = true
+        control.valid = this.validateControl(control.value, control.validation)
 
-            Object.keys(formControls).forEach(name => {
-                isFormValid = formControls[name].valid && isFormValid
-            })
+        formControls[controlName] = control
 
-            this.setState({
-                    formControls, isFormValid
-                })
+        let isFormValid = true
+
+        Object.keys(formControls).forEach(name => {
+            isFormValid = formControls[name].valid && isFormValid
+        })
+
+        this.setState({
+            formControls, isFormValid
+        })
     }
 
     renderInputs() {
         return Object.keys(this.state.formControls).map((controlName, index) => {
-           // переменная control определяется по ключу formControls, т.е. мыла или пароля для меньшего написания кода
+            // переменная control определяется по ключу formControls, т.е. мыла или пароля для меньшего написания кода
             const control = this.state.formControls[controlName]
-                return (
-                    <Input 
+            return (
+                <Input
                     key={controlName + index}
                     type={control.type} // сейчас в control лежит обьект характерный для каждого из контролов, и у него есть все ключи: type, value и пр.
                     value={control.value}
@@ -112,40 +112,40 @@ export default class Auth extends Component {
                     label={control.label}
                     shouldValidate={!!control.validation} // проверяет, нужно ли валидировать инпут, определяется универсально с приведением булевому типу !! 
                     errorMessage={control.errorMessage}
-                    onChange={event => this.onChangeHandler (event, controlName)} // callback принимает в себя ивент 
+                    onChange={event => this.onChangeHandler(event, controlName)} // callback принимает в себя ивент 
 
-                    />
-                )
+                />
+            )
         })
     }
 
     render() {
 
 
-        return(
+        return (
             <div className={classes.Auth}>
-               <div>
-                   <h1>Авторизация</h1>
-                   <form onSubmit={this.submitHandler} className={classes.AuthForm}>
+                <div>
+                    <h1>Авторизация</h1>
+                    <form onSubmit={this.submitHandler} className={classes.AuthForm}>
                         {/* функция которая рендерит инпуты: */}
                         {this.renderInputs()}
-                        <Button 
-                        type="success" 
-                        onClick={this.loginHandler}
-                        disabled={!this.state.isFormValid}
-                        > 
+                        <Button
+                            type="success"
+                            onClick={this.loginHandler}
+                            disabled={!this.state.isFormValid}
+                        >
                             Войти
-                            </Button>
-                            
-                            <Button 
-                        type="primary" 
-                        onClick={this.registerHandler}
-                        disabled={!this.state.isFormValid}
+                        </Button>
+
+                        <Button
+                            type="primary"
+                            onClick={this.registerHandler}
+                            disabled={!this.state.isFormValid}
                         >
                             Регистрация
-                            </Button>
+                        </Button>
                     </form>
-               </div>
+                </div>
             </div>
         )
     }
