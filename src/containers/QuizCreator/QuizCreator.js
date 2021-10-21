@@ -4,7 +4,7 @@ import Button from '../../components/UI/Button/Button'
 import {createControl, validate,validateForm} from '../../form/formFramework'
 import Input from "../../components/UI/Input/Input";
 import Select from "../../components/UI/Select/Select";
-
+import axios from "axios";
 // импортированная функция createControl возвращает простой объект
 // - // - // - // - // - // - // - // - // - // - // - // - //-
  
@@ -85,12 +85,24 @@ state = {
 
         })
     }
+//-//-//-//-Метод создания теста-//-//-//-//-//
 
-    createQuizHandler = event => {
+    createQuizHandler = async event => {
         event.preventDefault()
-        console.log(this.state.quiz)
+        
+        try {
+        await axios.post('https://react-quiz-f5616-default-rtdb.firebaseio.com/quizes.json', this.state.quiz)
+               this.setState({
+                quiz: [],
+                isFormValid: false,
+        rightAnswerId: 1,
+        formControls: createFormControls()
+               })
+        } catch(e) {
+            console.log(e)
+        }
+       
 
-        // TODO: Server 
 
     }
 
