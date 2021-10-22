@@ -89,20 +89,17 @@ state = {
 
     createQuizHandler = async event => {
         event.preventDefault()
-        
         try {
-        await axios.post('https://react-quiz-f5616-default-rtdb.firebaseio.com/quizes.json', this.state.quiz)
-               this.setState({
-                quiz: [],
-                isFormValid: false,
-        rightAnswerId: 1,
-        formControls: createFormControls()
-               })
-        } catch(e) {
-            console.log(e)
-        }
-       
-
+            await axios.post('https://react-quiz-f5616-default-rtdb.firebaseio.com/quizes.json', this.state.quiz)
+                   this.setState({
+                    quiz: [],
+                    isFormValid: false,
+            rightAnswerId: 1,
+            formControls: createFormControls()
+                   })
+            } catch(e) {
+                console.log(e)
+            }
 
     }
 
@@ -197,3 +194,8 @@ state = {
         )
     }
 }
+
+
+
+
+
