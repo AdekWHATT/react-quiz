@@ -1,7 +1,9 @@
 import React from "react";
 import classes from './ActiveQuiz.module.css'
 import AnswersList from './AnwersList/AnswersList'
-const ActiveQuiz = props => (
+const ActiveQuiz = props => { 
+    return (
+    
     <div className={classes.ActiveQuiz}>
         <p className={classes.Question}>
             <span>
@@ -17,5 +19,6 @@ const ActiveQuiz = props => (
         />
     </div>
 )
+        }
 
 export default ActiveQuiz;
